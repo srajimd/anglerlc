@@ -1,0 +1,32 @@
+body:not(h1, h2, h3, h4, h5, h6) {
+    font-size: 16px !important;
+}
+
+a {
+    text-decoration: none;
+    font-size: 16px !important;
+}
+
+.top-nav-title a {
+
+    font-size: 24px !important;
+
+    span {
+        font-size: 24px !important;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 25px;
+}
+
+.top-nav {
+    background-color: rgb(200, 217, 233);
+    margin-bottom: 25px;
+    max-width: 100%;
+}
