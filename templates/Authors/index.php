@@ -13,7 +13,7 @@
         <th>Actions</th>
     </tr>
     <?php
-    if ($authors->isEmpty()) {
+    if ($authors->items()->isEmpty()) {
         ?>
         <tr>
             <th colspan="5" class="text-center">No Authors Found</th>

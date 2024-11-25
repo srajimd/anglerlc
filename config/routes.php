@@ -62,6 +62,9 @@ return function (RouteBuilder $routes): void {
          */
         $builder->connect('/pages/*', 'Pages::display');
 
+        $builder->connect('/error/404', ['controller' => 'Error', 'action' => 'error404']);
+        $builder->connect('/error/500', ['controller' => 'Error', 'action' => 'error500']);
+
         /*
          * Connect catchall routes for all controllers.
          *

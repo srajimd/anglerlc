@@ -181,7 +181,8 @@ return [
      */
     'Error' => [
         'errorLevel' => E_ALL,
-        'skipLog' => [],
+        'exceptionRenderer' => \Cake\Error\Renderer\HtmlErrorRenderer::class,
+        'skipLog' => ['Cake\Http\Exception\NotFoundException', 'Cake\Http\Exception\UnauthorizedException', 'Cake\Http\Exception\MissingControllerException'],
         'log' => true,
         'trace' => true,
         'ignoredDeprecationPaths' => [],

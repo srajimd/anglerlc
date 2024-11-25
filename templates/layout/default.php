@@ -47,6 +47,12 @@ $cakeDescription = 'Book Shop';
             <a rel="noopener" href="<?= $this->Url->build('/authors') ?>">Authors</a>
             <a rel="noopener" href="<?= $this->Url->build('/books') ?>">Books</a>
         </div>
+        <?php
+        if ($auth->isValid()) { ?>
+            <div class="top-nav-links">
+                <a rel="noopener" href="<?= $this->Url->build('/users/logout') ?>">Logout</a>
+            </div>
+        <?php } ?>
     </nav>
     <main class="main">
         <div class="container">

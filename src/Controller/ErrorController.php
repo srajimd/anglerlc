@@ -33,6 +33,9 @@ class ErrorController extends AppController
     public function initialize(): void
     {
         // Only add parent::initialize() if you are confident your appcontroller is safe.
+        parent::initialize();
+
+        $this->viewBuilder()->setLayout('error');
     }
 
     /**
@@ -55,7 +58,14 @@ class ErrorController extends AppController
     {
         parent::beforeRender($event);
 
+        /* if ($this->response->getStatusCode() === 404) {
+            // Set a custom template for 404 errors
+            $this->viewBuilder()->setTemplatePath('Error/error404');
+        } */
+
         $this->viewBuilder()->setTemplatePath('Error');
+
+
     }
 
     /**
@@ -66,5 +76,12 @@ class ErrorController extends AppController
      */
     public function afterFilter(EventInterface $event)
     {
+    }
+
+    public function notFound()
+    {
+        $this->response = $this->response->withStatus(404);
+        $this->set('title', 'Page Not Found');
+        $this->render('/Error/error404');
     }
 }

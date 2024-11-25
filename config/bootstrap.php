@@ -103,6 +103,7 @@ if (Configure::read('debug')) {
     Configure::write('Cache._cake_translations_.duration', '+2 minutes');
     // disable router cache during development
     Configure::write('Cache._cake_routes_.duration', '+2 seconds');
+    Configure::read('Error.exceptionRenderer');
 }
 
 /*
@@ -125,8 +126,8 @@ ini_set('intl.default_locale', Configure::read('App.defaultLocale'));
 /*
  * Register application error and exception handlers.
  */
-(new ErrorTrap(Configure::read('Error')))->register();
-(new ExceptionTrap(Configure::read('Error')))->register();
+//(new ErrorTrap(Configure::read('Error')))->register();
+//(new ExceptionTrap(Configure::read('Error')))->register();
 
 /*
  * Include the CLI bootstrap overrides.

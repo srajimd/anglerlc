@@ -44,10 +44,24 @@ class AppController extends Controller
         $this->loadComponent('Flash');
         $this->viewBuilder()->addHelper('Button');
 
+        $this->loadComponent('Authentication.Authentication');
+
         /*
          * Enable the following component for recommended CakePHP form protection settings.
          * see https://book.cakephp.org/5/en/controllers/components/form-protection.html
          */
         //$this->loadComponent('FormProtection');
+
+    }
+
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+        // for all controllers in our application, make index and view
+        // actions public, skipping the authentication check
+        //$this->Authentication->addUnauthenticatedActions(['index', 'view']);
+        $this->Authentication->addUnauthenticatedActions(['login', 'register', 'logout', 'error500', 'error404', 'error400']);
+        $auth = $this->Authentication->getResult();
+        $this->set(compact('auth'));
     }
 }

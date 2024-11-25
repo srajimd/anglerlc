@@ -6,27 +6,34 @@
 </div>
 <table>
     <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Contact</th>
+        <th>Book Title</th>
+        <th>Author</th>
+        <th>Publisher</th>
         <th>Status</th>
         <th>Actions</th>
     </tr>
     <?php
-    if ($books->isEmpty()) {
+    if ($books->items()->isEmpty()) {
         ?>
         <tr>
             <th colspan="5" class="text-center">No Books Found</th>
         </tr>
         <?php
     } else {
-        foreach ($books as $book): ?>
+        foreach ($books as $book):
+            ?>
             <tr>
-                <td><?= h($book->firstname) ?></td>
-                <td><?= h($book->lastname) ?></td>
+                <td><?= h($book->title) ?></td>
                 <td>
-                    <div><?= h('E: ' . $book->email) ?></div>
-                    <div><?= h('M: ' . $book->mobile) ?></div>
+                    <div><?= h('N: ' . $book->author->firstname . ' ' . $book->author->lastname) ?></div>
+                    <div><?= h('E: ' . $book->author->email) ?></div>
+                    <div><?= h('M: ' . $book->author->mobile) ?></div>
+                </td>
+                <td>
+                    <div><?= h('N: ' . $book->publisher->publisher_name) ?></div>
+                    <div>
+                        <?= h('A: ' . $book->publisher->address1 . ',' . $book->publisher->address2 . ',' . $book->publisher->city . ',' . $book->publisher->state . '-' . $book->publisher->pincode) ?>
+                    </div>
                 </td>
                 <td><?= h($book->status == 'Y' ? 'Active' : 'Inactive') ?></td>
                 <td>

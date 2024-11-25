@@ -13,7 +13,7 @@
         <th>Actions</th>
     </tr>
     <?php
-    if ($publishers->isEmpty()) {
+    if ($publishers->items()->isEmpty()) {
         ?>
         <tr>
             <th colspan="5" class="text-center">No Publishers Found</th>
