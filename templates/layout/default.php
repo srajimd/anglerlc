@@ -46,6 +46,7 @@ $cakeDescription = 'Book Shop';
             <a rel="noopener" href="<?= $this->Url->build('/publishers') ?>">Publishers</a>
             <a rel="noopener" href="<?= $this->Url->build('/authors') ?>">Authors</a>
             <a rel="noopener" href="<?= $this->Url->build('/books') ?>">Books</a>
+            <a rel="noopener" href="<?= $this->Url->build('/users') ?>">Users</a>
         </div>
         <?php
         if ($auth->isValid()) { ?>
